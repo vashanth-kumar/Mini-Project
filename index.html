@@ -5,53 +5,79 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
     <title>Signin & Sign up</title>
   </head>
 
   <body>
     <div class="wrapper">
+      <!-- Sign Up Form -->
       <div class="form-container sign-up">
-        <form action="#">
+        <form action="#" method="post">
           <h2>Teacher sign up</h2>
           <div class="form-group">
-            <input type="text" required />
+            <input type="text" id="signup-username" name="username" required />
             <i class="fas fa-user"></i>
-            <label for="">Username</label>
+            <label for="signup-username">Username</label>
           </div>
           <div class="form-group">
-            <input type="email" required />
+            <input type="email" id="signup-email" name="email" required />
             <i class="fas fa-at"></i>
-            <label for="">Email</label>
+            <label for="signup-email">Email</label>
           </div>
           <div class="form-group">
-            <input type="tel" required />
+            <input type="tel" id="signup-number" name="number" required />
             <i class="fas fa-phone"></i>
-            <label for="">Number</label>
+            <label for="signup-number">Number</label>
           </div>
           <div class="form-group">
-            <input type="text" required />
+            <input type="text" id="signup-job" name="job" required />
             <i class="fas fa-briefcase"></i>
-            <label for="">Job</label>
+            <label for="signup-job">Job</label>
           </div>
           <div class="form-group">
-            <input type="text" required />
+            <input
+              type="text"
+              id="signup-designation"
+              name="designation"
+              required
+            />
             <i class="fas fa-id-badge"></i>
-            <label for="">Designation</label>
+            <label for="signup-designation">Designation</label>
           </div>
           <div class="form-group">
-            <input type="text" required />
+            <input
+              type="text"
+              id="signup-qualification"
+              name="qualification"
+              required
+            />
             <i class="fas fa-graduation-cap"></i>
-            <label for="">Qualification</label>
+            <label for="signup-qualification">Qualification</label>
           </div>
           <div class="form-group">
-            <input type="password" required />
+            <input
+              type="password"
+              id="signup-password"
+              name="password"
+              required
+            />
             <i class="fas fa-lock"></i>
-            <label for="">Password</label>
+            <label for="signup-password">Password</label>
           </div>
           <div class="form-group">
-            <input type="password" required />
+            <input
+              type="password"
+              id="signup-confirm-password"
+              name="confirm_password"
+              required
+            />
             <i class="fas fa-lock"></i>
-            <label for="">Confirm Password</label>
+            <label for="signup-confirm-password">Confirm Password</label>
           </div>
           <button type="submit" class="btn">Sign up</button>
           <div class="link">
@@ -62,18 +88,25 @@
           </div>
         </form>
       </div>
+
+      <!-- Sign In Form -->
       <div class="form-container sign-in">
-        <form action="#">
+        <form action="#" method="post">
           <h2>Teacher login</h2>
           <div class="form-group">
-            <input type="text" required />
+            <input type="text" id="signin-username" name="username" required />
             <i class="fas fa-user"></i>
-            <label for="">Username</label>
+            <label for="signin-username">Username</label>
           </div>
           <div class="form-group">
-            <input type="password" required />
+            <input
+              type="password"
+              id="signin-password"
+              name="password"
+              required
+            />
             <i class="fas fa-lock"></i>
-            <label for="">Password</label>
+            <label for="signin-password">Password</label>
           </div>
           <div class="forgot-pass">
             <a href="#">Forgot password?</a>
@@ -87,6 +120,8 @@
         </form>
       </div>
     </div>
+
+    <!-- Font Awesome JS -->
     <script
       src="https://kit.fontawesome.com/9e5ba2e3f5.js"
       crossorigin="anonymous"
@@ -94,3 +129,5 @@
     <script src="main.js"></script>
   </body>
 </html>
+index.html
+Displaying index.html.
