@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Profile</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f4f8;
+            color: #333;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #3c91e6;
+            color: white;
+            padding: 20px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 28px;
+        }
+
+        .logout {
+            text-decoration: none;
+            color: white;
+            font-size: 16px;
+            padding: 10px 15px;
+            border: 1px solid white;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .logout:hover {
+            background-color: #2a6fb6;
+        }
+
+        /* Profile Overview */
+        .profile-overview {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            background: linear-gradient(135deg, #3c91e6 40%, #f0f4f8);
+            color: white;
+        }
+
+        .profile-card {
+            display: flex;
+            gap: 30px;
+            padding: 20px;
+            background-color: white;
+            color: #333;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .profile-info {
+            text-align: center;
+        }
+
+        .profile-picture {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+
+        .profile-stats {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .profile-stats div {
+            text-align: center;
+        }
+
+        .profile-stats h3 {
+            font-size: 24px;
+            color: #3c91e6;
+            margin: 0;
+        }
+
+        .profile-stats p {
+            margin: 0;
+            font-size: 14px;
+            color: #666;
+        }
+
+        /* Details Section */
+        .details-section {
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+            max-width: 800px;
+            margin: 20px auto;
+        }
+
+        .subjects-taught, .contact-info {
+            flex: 1;
+        }
+
+        h3 {
+            margin: 0 0 10px;
+            font-size: 18px;
+            color: #3c91e6;
+        }
+
+        .subject-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .subject-list li {
+            margin: 5px 0;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .contact-info p {
+            font-size: 14px;
+            margin: 5px 0;
+        }
+
+        /* Action Buttons */
+        .action-buttons {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        button {
+            padding: 10px 15px;
+            font-size: 14px;
+            border: none;
+            border-radius: 5px;
+            background-color: #3c91e6;
+            color: white;
+            cursor: pointer;
+            margin: 0 5px;
+        }
+
+        button:hover {
+            background-color: #2a6fb6;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 10% auto;
+            padding: 20px;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 500px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover {
+            color: #333;
+        }
+
+        form label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 14px;
+            color: #555;
+        }
+
+        form input, form textarea, form button {
+            width: 100%;
+            margin-bottom: 15px;
+            padding: 10px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        form button {
+            background-color: #3c91e6;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        form button:hover {
+            background-color: #2a6fb6;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome,John Deo</h1>
+        <a href="logout.php" class="logout">Logout</a>
+    </header>
+    <main>
+        <section class="profile-overview">
+            <div class="profile-card">
+                <div class="profile-info">
+                    <img src="Teacher.jpg" alt="Profile Picture" class="profile-picture">
+                    <h2>John Doe</h2>
+                    <p class="bio">Passionate educator specializing in mathematics and computer science.</p>
+                </div>
+                <div class="profile-stats">
+                    <div>
+                        <h3>150+</h3>
+                        <p>Students Taught</p>
+                    </div>
+                    <div>
+                        <h3>5+</h3>
+                        <p>Years Experience</p>
+                    </div>
+                    <div>
+                        <h3>20+</h3>
+                        <p>Courses Created</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="details-section">
+            <div class="subjects-taught">
+                <h3>Subjects Taught</h3>
+                <ul class="subject-list">
+                    <li>Mathematics</li>
+                    <li>Science</li>
+                    <li>Web Development</li>
+                    <li>Artificial Intelligence</li>
+                </ul>
+            </div>
+            <div class="contact-info">
+                <h3>Contact Information</h3>
+                <p><strong>Email:</strong> teacher@example.com</p>
+                <p><strong>Phone:</strong> +123 456 7890</p>
+            </div>
+        </section>
+        <section class="action-buttons">
+            <button onclick="openModal('editProfileModal')">Edit Profile</button>
+            <button onclick="openModal('changePasswordModal')">Change Password</button>
+        </section>
+    </main>
+     <!-- Edit Profile Modal -->
+     <div id="editProfileModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('editProfileModal')">&times;</span>
+            <h2>Edit Profile</h2>
+            <form method="POST" action="update_profile.php">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" value="[Teacher Name]" required>
+                <label for="bio">Bio:</label>
+                <textarea id="bio" name="bio" rows="4" required>Dedicated educator with expertise...</textarea>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" value="teacher@example.com" required>
+                <label for="phone">Phone:</label>
+                <input type="tel" id="phone" name="phone" value="+123 456 7890" required>
+                <label for="subjects">Subjects Taught:</label>
+                <input type="text" id="subjects" name="subjects" value="Mathematics, Science, Web Development, AI" required>
+                <button type="submit">Save Changes</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Change Password Modal -->
+    <div id="changePasswordModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('changePasswordModal')">&times;</span>
+            <h2>Change Password</h2>
+            <form method="POST" action="update_password.php">
+                <label for="currentPassword">Current Password:</label>
+                <input type="password" id="currentPassword" name="currentPassword" required>
+                <label for="newPassword">New Password:</label>
+                <input type="password" id="newPassword" name="newPassword" required>
+                <label for="confirmPassword">Confirm New Password:</label>
+                <input type="password" id="confirmPassword" name="confirmPassword" required>
+                <button type="submit">Change Password</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript for Modal
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = 'block';
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+        }
+
+        // Close the modal if the user clicks outside of it
+        window.onclick = function(event) {
+            const modals = document.querySelectorAll('.modal');
+            modals.forEach(modal => {
+                if (event.target == modal) {
+                    modal.style.display = 'none';
+                }
+            });
+        };
+    </script>
+</body>
+</html>

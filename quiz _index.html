@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz - All Subjects</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+        header {
+            background: #4CAF50;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+        nav {
+            margin: 20px 0;
+            text-align: center;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+        }
+        .subject {
+            display: inline-block;
+            width: 180px;
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .subject:hover {
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+            transform: translateY(-5px);
+        }
+        .subject button {
+            margin-top: 10px;
+            padding: 10px;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .subject button:hover {
+            background: #45a049;
+        }
+        #syllabus-page {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: white;
+            z-index: 1000;
+            display: none;
+            overflow-y: auto;
+            padding: 20px;
+        }
+        #syllabus-content {
+            max-width: 800px;
+            margin: auto;
+        }
+        #syllabus-title {
+            text-align: center;
+            color: #4CAF50;
+            margin-bottom: 20px;
+        }
+        #syllabus-details {
+            line-height: 1.6;
+            font-size: 1.1em;
+        }
+        #back-button, #start-quiz-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 150px;
+        }
+        #back-button {
+            background: #ff5c5c;
+        }
+        #back-button:hover {
+            background: #e04d4d;
+        }
+        #start-quiz-button {
+            background: #4CAF50;
+        }
+        #start-quiz-button:hover {
+            background: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>All Subjects Quiz</h1>
+        <p>Explore the syllabus and confirm before taking the quiz</p>
+    </header>
+    <section id="quiz-container" style="text-align: center; margin-top: 20px;">
+        <h2>Select a subject and confirm syllabus completion to begin</h2>
+    </section>
+    
+    <nav>
+        <div class="subject">
+            <h3>C</h3>
+            <button onclick="showSyllabusPage('C')">View Syllabus</button>
+        </div>
+        <div class="subject">
+            <h3>Java</h3>
+            <button onclick="showSyllabusPage('Java')">View Syllabus</button>
+        </div>
+        <div class="subject">
+            <h3>Python</h3>
+            <button onclick="showSyllabusPage('Python')">View Syllabus</button>
+        </div>
+        <div class="subject">
+            <h3>HTML</h3>
+            <button onclick="showSyllabusPage('HTML')">View Syllabus</button>
+        </div>
+        <div class="subject">
+            <h3>JavaScript</h3>
+            <button onclick="showSyllabusPage('JavaScript')">View Syllabus</button>
+        </div>
+    </nav>
+
+
+    <div id="syllabus-page">
+        <div id="syllabus-content">
+            <h1 id="syllabus-title"></h1>
+            <div id="syllabus-details"></div>
+            <button id="back-button" onclick="closeSyllabusPage()">Back</button>
+            <button id="start-quiz-button" onclick="startQuiz()">Start Quiz</button>
+        </div>
+    </div>
+
+    <script>
+        const syllabusData = {
+            C: `<h3>Overview</h3>
+                <p>
+                C, designed by Dennis Ritchie in the early 1970s at Bell Labs, is one of the most influential programming languages 
+                in history. Known as the "mother of all languages," it laid the foundation for modern languages like C++, Java, 
+                and Python. C's simplicity, efficiency, and close interaction with hardware make it ideal for system programming, 
+                operating systems, embedded systems, and real-time applications.
+                </p>
+                <p>
+                The language provides control over low-level system components, such as memory and processor instructions, through 
+                features like pointers, dynamic memory allocation, and file handling. These capabilities make C essential for developers 
+                who need high performance and precise control, especially in fields like robotics, IoT, and game development.
+                </p>
+                <p>
+                Mastering C is considered a rite of passage for aspiring programmers, as it introduces fundamental programming 
+                concepts, including loops, functions, data structures, and algorithm design. Its enduring relevance makes it a 
+                core subject in computer science curricula worldwide.
+                </p>`,
+    
+            Java: `<h3>Overview</h3>
+                <p>
+                Java, created by Sun Microsystems in 1995, is a versatile, object-oriented programming language widely known for its 
+                platform independence, achieved through the "write once, run anywhere" (WORA) principle. By compiling into bytecode 
+                that runs on the Java Virtual Machine (JVM), Java ensures compatibility across various devices and operating systems.
+                </p>
+                <p>
+                Java is a cornerstone of enterprise software development, powering large-scale systems, banking applications, and e-commerce 
+                platforms. It is also the backbone of Android app development, enabling the creation of millions of mobile applications. 
+                With a robust standard library and frameworks like Spring, Hibernate, and Struts, Java simplifies complex tasks such as 
+                database interaction, networking, and web development.
+                </p>
+                <p>
+                Its object-oriented principles—encapsulation, inheritance, and polymorphism—promote code reusability, scalability, and 
+                maintainability. Java also emphasizes security, making it a trusted choice for developing mission-critical applications. 
+                With its active developer community and continuous evolution, Java remains a dominant force in software engineering.
+                </p>`,
+    
+            Python: `<h3>Overview</h3>
+                <p>
+                Python, developed by Guido van Rossum in 1991, is a high-level, interpreted programming language celebrated for its 
+                simplicity, readability, and versatility. Its straightforward syntax makes it an excellent choice for beginners, while 
+                its powerful libraries and frameworks cater to advanced developers in fields like data science, artificial intelligence, 
+                and web development.
+                </p>
+                <p>
+                Python is the preferred language for machine learning and AI applications, thanks to libraries like TensorFlow, Keras, 
+                and Scikit-learn. It also excels in data analysis and visualization with tools like Pandas, NumPy, and Matplotlib. 
+                In web development, frameworks like Django and Flask enable the rapid creation of robust, scalable applications.
+                </p>
+                <p>
+                Python's versatility extends to scripting, automation, game development, and even scientific research. It supports 
+                multiple programming paradigms, including procedural, object-oriented, and functional programming. As one of the most 
+                popular languages worldwide, Python continues to dominate the tech industry, offering endless opportunities for innovation.
+                </p>`,
+    
+            HTML: `<h3>Overview</h3>
+                <p>
+                HTML (HyperText Markup Language) is the backbone of web development, responsible for structuring and presenting content 
+                on the World Wide Web. First introduced by Tim Berners-Lee in 1993, HTML has evolved significantly, with HTML5 being the 
+                latest version offering enhanced multimedia capabilities, semantic elements, and support for mobile-first design.
+                </p>
+                <p>
+                HTML works seamlessly with CSS for styling and JavaScript for interactivity, forming the core trio of web technologies. 
+                It uses tags and elements to define headings, paragraphs, links, images, forms, and multimedia content. Modern features 
+                of HTML5, such as canvas for graphics, video/audio embedding, and offline storage, empower developers to create 
+                sophisticated, responsive web applications.
+                </p>
+                <p>
+                HTML is essential for anyone entering the field of web development. Its simplicity and accessibility make it the 
+                foundation upon which dynamic, visually appealing websites and applications are built. As the web continues to evolve, 
+                HTML remains a critical skill for developers worldwide.
+                </p>`,
+    
+            JavaScript: `<h3>Overview</h3>
+                <p>
+                JavaScript, developed by Brendan Eich in 1995, is a high-level, interpreted language that brings interactivity and 
+                dynamism to web pages. As a core web technology alongside HTML and CSS, JavaScript allows developers to create 
+                responsive user interfaces, animations, form validations, and real-time updates.
+                </p>
+                <p>
+                Beyond the browser, JavaScript has expanded into server-side programming with Node.js, enabling developers to build 
+                scalable backend systems. Frameworks like React, Angular, and Vue.js revolutionize front-end development by facilitating 
+                the creation of complex, single-page applications (SPAs). JavaScript also powers mobile app development with frameworks 
+                like React Native and desktop applications with tools like Electron.
+                </p>
+                <p>
+                JavaScript's ability to interact with APIs and handle asynchronous operations makes it indispensable for modern 
+                application development. As a constantly evolving language supported by a vibrant community, JavaScript continues 
+                to drive innovation across the tech landscape, from web development to gaming and beyond.
+                </p>`
+        };
+
+        function showSyllabusPage(subject) {
+            document.getElementById('syllabus-title').innerText = `${subject} Syllabus`;
+            document.getElementById('syllabus-details').innerHTML = syllabusData[subject];
+            document.getElementById('syllabus-page').style.display = 'block';
+            document.getElementById('start-quiz-button').setAttribute('data-subject', subject); // Store subject for quiz navigation
+        }
+
+        function closeSyllabusPage() {
+            document.getElementById('syllabus-page').style.display = 'none';
+        }
+
+        function startQuiz() {
+            const subject = document.getElementById('start-quiz-button').getAttribute('data-subject');
+            window.location.href = `${subject.toLowerCase()}_quiz.html`; // Redirect to the quiz page of the selected subject
+        }
+    </script>
+</body>
+</html>

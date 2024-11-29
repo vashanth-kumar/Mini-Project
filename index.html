@@ -1,133 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Dashboard</title>
+    <link rel="stylesheet" href="./home_style.css">
+</head>
+<body>
+    <header>
+        <h1>Teacher Dashboard</h1>
+        <nav>
+            <ul>
+                <li><a href="dashboard.php">Home</a></li>
+                <li><a href="teacher_profile.html.php">Profile</a></li>
+                <li><a href="quiz _index.html">Quiz</a></li> <!-- New Quiz Page Link -->
+                <li><a href="logout.php" class="logout">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <!-- Hero Section with Motivational Quote -->
+        <section class="hero-dashboard">
+            <h2>Welcome, [Teacher Name]</h2>
+            <p>“Education is the most powerful weapon which you can use to change the world.” – Nelson Mandela</p>
+            <p>Your dedication shapes the future. Let’s make learning inspiring every day!</p>
+        </section>
 
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
-    />
-    <title>Signin & Sign up</title>
-  </head>
+        <!-- Announcements Section -->
+        <section class="dashboard-announcements">
+            <h3>Announcements</h3>
+            <ul>
+                <li>Don't forget to update your course materials for the upcoming term!</li>
+                <li>New feature: You can now create timed quizzes for your students.</li>
+                <li>Workshop on student engagement next week. Join us for more tips!</li>
+            </ul>
+        </section>
 
-  <body>
-    <div class="wrapper">
-      <!-- Sign Up Form -->
-      <div class="form-container sign-up">
-        <form action="#" method="post">
-          <h2>Teacher sign up</h2>
-          <div class="form-group">
-            <input type="text" id="signup-username" name="username" required />
-            <i class="fas fa-user"></i>
-            <label for="signup-username">Username</label>
-          </div>
-          <div class="form-group">
-            <input type="email" id="signup-email" name="email" required />
-            <i class="fas fa-at"></i>
-            <label for="signup-email">Email</label>
-          </div>
-          <div class="form-group">
-            <input type="tel" id="signup-number" name="number" required />
-            <i class="fas fa-phone"></i>
-            <label for="signup-number">Number</label>
-          </div>
-          <div class="form-group">
-            <input type="text" id="signup-job" name="job" required />
-            <i class="fas fa-briefcase"></i>
-            <label for="signup-job">Job</label>
-          </div>
-          <div class="form-group">
-            <input
-              type="text"
-              id="signup-designation"
-              name="designation"
-              required
-            />
-            <i class="fas fa-id-badge"></i>
-            <label for="signup-designation">Designation</label>
-          </div>
-          <div class="form-group">
-            <input
-              type="text"
-              id="signup-qualification"
-              name="qualification"
-              required
-            />
-            <i class="fas fa-graduation-cap"></i>
-            <label for="signup-qualification">Qualification</label>
-          </div>
-          <div class="form-group">
-            <input
-              type="password"
-              id="signup-password"
-              name="password"
-              required
-            />
-            <i class="fas fa-lock"></i>
-            <label for="signup-password">Password</label>
-          </div>
-          <div class="form-group">
-            <input
-              type="password"
-              id="signup-confirm-password"
-              name="confirm_password"
-              required
-            />
-            <i class="fas fa-lock"></i>
-            <label for="signup-confirm-password">Confirm Password</label>
-          </div>
-          <button type="submit" class="btn">Sign up</button>
-          <div class="link">
-            <p>
-              You already have an account?
-              <a href="#" class="signin-link">Sign in</a>
-            </p>
-          </div>
-        </form>
-      </div>
+        <!-- Teacher Functions -->
+        <section class="dashboard-functions">
+            <h3>Quick Actions</h3>
 
-      <!-- Sign In Form -->
-      <div class="form-container sign-in">
-        <form action="#" method="post">
-          <h2>Teacher login</h2>
-          <div class="form-group">
-            <input type="text" id="signin-username" name="username" required />
-            <i class="fas fa-user"></i>
-            <label for="signin-username">Username</label>
-          </div>
-          <div class="form-group">
-            <input
-              type="password"
-              id="signin-password"
-              name="password"
-              required
-            />
-            <i class="fas fa-lock"></i>
-            <label for="signin-password">Password</label>
-          </div>
-          <div class="forgot-pass">
-            <a href="#">Forgot password?</a>
-          </div>
-          <button type="submit" class="btn">Login</button>
-          <div class="link">
-            <p>
-              Don't have an account? <a href="#" class="signup-link">Sign up</a>
-            </p>
-          </div>
-        </form>
-      </div>
-    </div>
+            <!-- Post Video Section -->
+            <div class="dashboard-card">
+                <h4>Post a New Video</h4>
+                <p>Share video lessons and tutorials for your students to learn.</p>
+                <button onclick="window.location.href='post_video.php'">Post Video</button>
+            </div>
 
-    <!-- Font Awesome JS -->
-    <script
-      src="https://kit.fontawesome.com/9e5ba2e3f5.js"
-      crossorigin="anonymous"
-    ></script>
-    <script src="main.js"></script>
-  </body>
+            <!-- Conduct Test Section -->
+            <div class="dashboard-card">
+                <h4>Conduct a Test</h4>
+                <p>Create and assign tests to assess student understanding.</p>
+                <button onclick="window.location.href='create_test.php'">Create Test</button>
+            </div>
+
+            <!-- Add Course Materials Section -->
+            <div class="dashboard-card">
+                <h4>Add Course Materials</h4>
+                <p>Upload notes, assignments, and other resources for students.</p>
+                <button onclick="window.location.href='add_material.php'">Add Materials</button>
+            </div>
+
+            <!-- View Performance Section -->
+            <div class="dashboard-card">
+                <h4>View Student Performance</h4>
+                <p>Track student progress and view test results to provide feedback.</p>
+                <button onclick="window.location.href='view_performance.php'">View Performance</button>
+            </div>
+
+            <!-- Manage Assignments Section -->
+            <div class="dashboard-card">
+                <h4>Manage Assignments</h4>
+                <p>Create and review assignments to support students' learning goals.</p>
+                <button onclick="window.location.href='manage_assignments.php'">Manage Assignments</button>
+            </div>
+
+            <!-- Communicate with Students Section -->
+            <div class="dashboard-card">
+                <h4>Communicate with Students</h4>
+                <p>Send announcements, answer questions, and engage with your students directly.</p>
+                <button onclick="window.location.href='communicate.php'">Communicate</button>
+            </div>
+
+            <!-- Quiz Section -->
+            <div class="dashboard-card">
+                <h4>Manage Quizzes</h4>
+                <p>Create and organize quizzes for various subjects in one place.</p>
+                <button onclick="window.location.href='quiz.html'">Manage Quizzes</button>
+            </div>
+        </section>
+
+        <!-- Tips for Effective Teaching -->
+        <section class="teaching-tips">
+            <h3>Teaching Tips & Insights</h3>
+            <ul>
+                <li>“Encourage questions and curiosity. Learning is more meaningful when students actively participate.”</li>
+                <li>Use multimedia resources to make lessons more engaging and interactive.</li>
+                <li>Provide regular feedback to help students understand their progress and areas for improvement.</li>
+            </ul>
+        </section>
+    </main>
+</body>
 </html>
-index.html
-Displaying index.html.
